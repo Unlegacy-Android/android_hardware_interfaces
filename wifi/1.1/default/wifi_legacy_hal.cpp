@@ -344,6 +344,10 @@ wifi_error WifiLegacyHal::initialize() {
 
 wifi_error WifiLegacyHal::start() {
   // Ensure that we're starting in a good state.
+  LOG(DEBUG) << "global_func_table_.wifi_initialize is" << global_func_table_.wifi_initialize;
+  LOG(DEBUG) << "!global_handle_ is " << !global_handle_;
+  LOG(DEBUG) << "!wlan_interface_handle_ is " << !wlan_interface_handle_;
+  LOG(DEBUG) << "!awaiting_event_loop_termination_ is " << !awaiting_event_loop_termination_;
   CHECK(global_func_table_.wifi_initialize && !global_handle_ &&
         !wlan_interface_handle_ && !awaiting_event_loop_termination_);
   if (is_started_) {
